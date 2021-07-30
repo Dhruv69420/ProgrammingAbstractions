@@ -1,0 +1,583 @@
+1.
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a,b;
+    scanf("%d %d",&a,&b);
+    a=a+b;
+    b=a-b;
+    a-=b;
+    printf("%d %d",a,b);
+
+    return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+2.
+
+
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int k=n;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<k;j++){
+            printf(" ");
+        }
+        k--;
+        for(int j=0;j<=i;j++){
+            printf("# ");
+        }
+        
+        
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+3.
+
+#include <stdio.h>
+
+int main()
+{
+    char str[999999];
+    scanf("%[^\n]s",&str);
+    int i=0,v=0,c=0;
+    while(str[i]!='\0'){
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u')
+            v++;
+        else
+          c++;
+    i++;
+        
+    }
+    printf("Vowels: %d Consonants:%d",v,c);
+
+    return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+
+4.
+
+#include <stdio.h>
+
+int func(int a[],int j){
+    int i=0;
+    j--;
+    int temp=j;
+    int arr[j];
+    
+    while(a[i+1]!='\0'){
+        arr[i]=a[j];
+        i++;
+        j--;
+    }
+    i=0;
+    while(a[i+1]!='\0'){
+        a[i]=arr[i];
+        i++;
+    }
+}
+int main()
+{
+   int a[]={1,2,3,4,5};
+   int j=sizeof(a)/sizeof(int);
+   func(a,j);
+   int i =0;
+   while(a[i+1]!='\0'){
+    printf("%d ",a[i]);
+    i++;
+   }
+    return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+5.
+
+#include <stdio.h>
+
+int main()
+{
+     int mat1[2][2] = {{1,2},{3, 4}};
+ 
+     int mat2[2][2] = {{1,1},{1,1}};
+ 
+    int res[2][2]; 
+    
+    
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            res[i][j] = 0;
+            for (int k = 0; k < 2; k++)
+                res[i][j] += mat1[i][k] * mat2[k][j];
+        }
+    }
+ 
+    printf("Result matrix is \n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++)
+            printf("%d ", res[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+6.
+
+#include <stdio.h>
+
+ 
+
+void rem(char *str)
+{
+
+    int count = 0;
+ 
+
+
+    for (int i = 0; str[i]; i++)
+        if (str[i] != ' ')
+            str[count++] = str[i];
+    str[count] = '\0';
+}
+ 
+
+int main()
+{
+    char str[999999];
+    scanf("%[^\n]s",&str);
+    rem(str);
+    int l = 0;
+    int h = strlen(str) - 1;
+ 
+    
+    while (h > l)
+    {
+        if (str[l++] != str[h--])
+        {
+            printf("The given String is not a palindrome\n");
+            return;
+        }
+    }
+    printf("The given String is a palindrome\n");
+
+    return 0;
+}
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+7.
+
+
+#include <stdio.h>
+
+int main()
+{
+    char str[999999];
+    scanf("%[^\n]s",&str);
+    int index=0;
+    int i=index;
+    int c=0;
+    while(str[i+1]!='\0'){
+        c++;
+        if(str[i]=='.'){
+           if(c>=80){
+               for(int j=index;j<c;j++){
+                   printf("%c",str[j]);
+               }
+               index=c+1;
+           }
+           index=c+1;
+           c=0;
+        }
+        i++;
+    }
+
+    return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+8.
+
+#include <stdio.h>
+int len(char *str){
+    int c=0,i=0;
+    while(str[i]!='\0'){
+        c++;
+        i++;
+    }
+    
+    return c;
+}
+int main()
+{
+    char str[999999];
+    scanf("%[^\n]s",&str);
+    int l=len(str);
+    char rev[l];
+    for(int i=0;str[i]!='\0';i++){
+        
+        printf("%c",str[l-1]);
+        l--;
+    }
+    
+   
+    return 0;
+}
+
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+9.
+
+#include<stdio.h>
+
+double mypow(double n,double i){
+    if(i==0)
+        return 1;
+    for(int j=0;j<i-1;j++)
+        n*=n;
+    return n;    
+}
+void htoi(char* s)
+{
+    int decnum=0, rem, i=0, len=0;
+    while(s[i]!='\0')
+    {
+        len++;
+        i++;
+    }
+    len--;
+    i=0;
+    while(len>=0)
+    {
+        rem = s[len];
+        if(rem>=48 && rem<=57)
+            rem = rem-48;
+        else if(rem>=65 && rem<=70)
+            rem = rem-55;
+        else if(rem>=97 && rem<=102)
+            rem = rem-87;
+        else
+        {
+            printf("\nYou've entered an invalid Hexadecimal digit");
+            return 0;
+        }
+        decnum = decnum + (rem*mypow(16, i));
+        len--;
+        i++;
+    }
+    printf("\nEquivalent Decimal Value = %d", decnum);
+}
+int main()
+{
+    
+    char hexnum[20];
+    printf("Enter any Hexadecimal Number: ");
+    scanf("%s", hexnum);
+    htoi(hexnum);
+    
+    return 0;
+}
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+10.
+
+#include <stdio.h>
+
+void squeeze(char s1[],char s2[])
+{
+	int i,j,m;
+	for(m = 0; s2[m] != '\0'; m++)
+	{
+		for(i = j = 0; s1[i] != '\0'; i++)
+		{
+			if(s1[i] != s2[m])
+				s1[j++] = s1[i];
+		}
+		s1[j] = '\0';
+	}
+}
+
+int main()
+{
+	char s1[100],s2[100];
+	printf("Enter string 1:");
+	scanf("%s",s1);
+	printf("Enter string 2:");
+	scanf("%s",s2);
+
+	squeeze(s1,s2);
+
+	printf("%s\n",s1);
+
+	return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+11.
+
+#include <stdio.h>
+
+int any(char* s1, char*s2){
+        int temp;
+        for(int i=0;s1[i]!='\0';i++){
+          if(s1[i]==s2[0]){
+            temp=i+1;
+        
+            for(int j=1;s2[j]!='\0';j++){
+                if(s1[temp]!=s2[j])
+                    break;
+                if(s2[j+1]=='\0'){
+                    return i;
+                }
+                temp++;        
+            }
+          }
+        }
+        return -1;
+} 
+
+int main()
+{
+    char str[999999], str2[999999];
+    scanf("%s",&str);
+    scanf("%s",&str2);
+    printf("%d",any(str,str2));
+        return 0;
+}
+
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+12.
+
+#include <stdio.h>
+
+int strrindex( char* s , char* t ){
+    int flag=0;
+    int temp;
+    int ind=-1;
+        for(int i=0;s[i]!='\0';i++){
+          if(s[i]==t[0]){
+            temp=i+1;
+        
+            for(int j=1;t[j]!='\0';j++){
+                if(s[temp]!=t[j])
+                    break;
+                if(t[j+1]=='\0'){
+                    ind=i;
+                    
+                }
+                temp++;        
+            }
+          }
+        }
+        
+    
+       return ind;
+    
+}
+
+int main()
+{
+    char str[999999], str2[999999];
+    scanf("%s",&str);
+    scanf("%s",&str2);
+    printf("%d",strrindex(str,str2));
+    return 0;
+}
+
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+13.
+
+#include <stdio.h>
+int len(char *str){
+    int c=0,i=0;
+    while(str[i]!='\0'){
+        c++;
+        i++;
+    }
+    
+    return c;
+}
+int strend(char *s , char* t) {
+    int l1=len(s)-1;
+    int l2=len(t)-1;
+    int flag=0;
+
+        for(int i=l2;i>=0;i--){
+            if(t[i]!=s[l1]){
+                return 0;
+                
+                
+            }
+        l1--;
+        
+    }
+     if(flag==0)
+        return 1;
+        
+}
+int main()
+{
+    char str[999999], str2[999999];
+    scanf("%s",&str);
+    scanf("%s",&str2);
+    printf("%d",strend(str,str2));
+   
+    return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+14.
+
+#include <stdio.h>
+
+int len(char *str){
+    int c=0,i=0;
+    while(str[i]!='\0'){
+        c++;
+        i++;
+    }
+    
+    return c;
+}
+
+int mystrCmp(char *s1, char *s2){
+    int l1=len(s1);
+    int l2=len(s2);
+    int c=0;
+    
+    for (int i = 0; s1[i]!='\0' || s2[i]!='\0'; ++i){
+        c++;
+       if(s1[i]!=s2[i]){
+           
+            if(l1>=l2){
+                return 1;
+            }
+       
+            else
+                return -1;
+       }  
+    } 
+    
+    return 0;
+   
+   
+}
+char *mystrcpy(char *dst, char *src, size_t n)
+{
+   if((dst == NULL) && (src == NULL))
+        return NULL;
+
+   char *temp;
+   temp = dst;  
+   for (int i = 0; i < n; i++)
+      *dst++ = *src++;
+   return temp;
+}
+char *mystrcat(char *s1, char *s2, size_t n)
+{
+    
+    if((s1 == NULL) && (s2 == NULL))
+        return NULL;
+    
+    char *start = s1;
+    while(*start != '\0')
+        start++;
+    
+    int k=0;
+    while(*s2 != '\0'&&k<n)
+    {
+        *start++ = *s2++;
+        k++;
+    }
+    *start = '\0';
+    return s1;
+}
+int main()
+{
+    char str1[]="HelloWorld";
+    char str2[]="HelloWorld";
+    int n=4;
+    char *strCpy=mystrcpy(str1,str2,4);
+    printf("%s ",strCpy);
+    char *strCat=mystrcat(str1,str2,4);
+    printf("%s ",strCat);
+    int strCmp=mystrCmp(str1,str2);
+    printf(" %d",strCmp);
+    return 0;
+}
+
+
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
