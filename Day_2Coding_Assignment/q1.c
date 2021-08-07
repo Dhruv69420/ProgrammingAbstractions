@@ -23,7 +23,7 @@ int push(int item)
   }
   printf("%d pushed to stack\n",item);
   Stack[++top] = item;
-  printf("Top is now at %d\n", top);
+  
 }
 
 int pop()
@@ -36,14 +36,13 @@ int pop()
   }
   temp=Stack[top--];
   printf("%d popped from stack\n", temp);
-  printf("Top is now at %d\n", top);
   return temp;
 }
 
 int peek()
 {
     int i;
-    if(front == - 1)
+    if(top == - 1)
         printf("Queue is empty");
     else
     {
