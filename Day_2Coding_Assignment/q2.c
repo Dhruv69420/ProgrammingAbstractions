@@ -19,7 +19,7 @@ void enqueue(int item)
         queue_array[rear] = item;
     }
 }
-void is_empty(){
+int is_empty(){
     if(front == - 1 || front > rear)
     {
         
@@ -29,7 +29,7 @@ void is_empty(){
 	    return 0;
     }
 }
-void dequeue()
+int dequeue()
 {
     if(front == - 1 || front > rear)
     {
@@ -44,7 +44,7 @@ void dequeue()
     }
 }
 
-void peek()
+int peek()
 {
     int i;
     if(front == - 1)
