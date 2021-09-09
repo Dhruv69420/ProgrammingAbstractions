@@ -37,7 +37,6 @@ int bang(int x)
 
 int invert( int x, int p, int n)
 {
-    int num = 1357;
     int N, n1;
     n1 = 1 << (n);
     N = (~n1)^(1<<(n+1));
