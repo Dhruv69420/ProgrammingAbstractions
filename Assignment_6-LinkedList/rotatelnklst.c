@@ -1,5 +1,5 @@
 struct ListNode* rotateRight(struct ListNode* head, int k){
-    struct ListNode* h=(struct ListNode*)malloc(sizeof(struct ListNode));
+   struct ListNode* h=(struct ListNode*)malloc(sizeof(struct ListNode));
     h=head;
     int c=0;
     if(k==0||head==NULL||head->next==NULL){
@@ -7,6 +7,8 @@ struct ListNode* rotateRight(struct ListNode* head, int k){
     }
     
     while(1){
+        if(h->next==NULL)
+            h=head;
         if(h->next->next==NULL){
             h->next->next=head;
             head=h->next;
