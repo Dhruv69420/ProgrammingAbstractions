@@ -6,26 +6,32 @@ struct ListNode {
     struct ListNode *next;
 };
 int isPalindrome(struct ListNode* head){
-    struct ListNode* temp=head;
+     struct ListNode* temp=head;
     int i=0;
     while(temp!=NULL){
         i++;
         temp=temp->next;
    }
-    
+    if(i==1)
+        return true;
+    if(i==2){
+        if(head->val==head->next->val)
+            return true;
+        else
+            return false;
+    }
     int arr[i/2];
     int c=0;
     int flag=0;
-    while(head!=NULL){
-        if(c<i/2){
+    while(c<i/2){
+        
            arr[c]=head->val;
            c++;
            head=head->next;
         }
-        
-        else{
+        while(head!=NULL&&c>=0){
+            if(i%2!=0)
             if(c==i/2)
-		    if(c%2!=0)
 			    head=head->next;
 		    --c;
 	    
@@ -33,11 +39,11 @@ int isPalindrome(struct ListNode* head){
                flag=1;
                break;
            } 
-            c--;
+            
             head=head->next;
         }
         
-    }
+    
     if(flag==0)
         return 1;
     else 
