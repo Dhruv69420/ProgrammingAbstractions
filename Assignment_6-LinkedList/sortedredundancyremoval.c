@@ -5,7 +5,10 @@ struct ListNode{
 	struct ListNode* next;
 };
 struct ListNode* redundancyRemoval(struct ListNode* head){
-	struct ListNode* temp=(struct ListNode*)malloc(5*sizeof(struct ListNode));
+	struct ListNode* deleteDuplicates(struct ListNode* head){
+    if(head==NULL)
+        return head;
+struct ListNode* temp=(struct ListNode*)malloc(5*sizeof(struct ListNode));
 	struct ListNode* temp1=(struct ListNode*)malloc(5*sizeof(struct ListNode));
         struct ListNode* temp2=(struct ListNode*)malloc(5*sizeof(struct ListNode));
 
@@ -42,7 +45,9 @@ struct ListNode* redundancyRemoval(struct ListNode* head){
 		temp2=temp2->next;
 
 	}
-//	printf("%d\n",head->next->val);
+    if(temp2==NULL)
+        return temp2;
+
 	while(temp2!=NULL){
 	        if(temp2->next==NULL){
 			break;
@@ -60,9 +65,11 @@ struct ListNode* redundancyRemoval(struct ListNode* head){
 	   temp2=temp2->next;
 		
 	}
-//	printf("%d\n",head->val);
+
 
 	return head;
+
+}
 }
 
 
